@@ -10,6 +10,9 @@ services:
       - 9009:9009
     volumes:
       - ./app:/var/www/app
+    environment:
+      PUBLIC_FOLDER: /var/www/app/public
+      APP_ENV: dev
   php-fpm:
     image: enrikerf/php-fpm-xdebug:latest
     ports:
