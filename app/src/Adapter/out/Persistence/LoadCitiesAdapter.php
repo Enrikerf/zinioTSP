@@ -45,8 +45,13 @@ class LoadCitiesAdapter implements LoadCitiesPort
 
         foreach ($cityElements as $element) {
             if (!is_numeric($element)) {
-                $firstElementIsText ? null : $firstElementIsText = true;
-                $name .= $element;
+                if ($firstElementIsText) {
+                    $name .= " " . $element;
+                } else {
+                    $firstElementIsText = true;
+                    $name .= $element;
+                }
+
             } else {
                 if (!$firstElementIsText) {
                     return null;
