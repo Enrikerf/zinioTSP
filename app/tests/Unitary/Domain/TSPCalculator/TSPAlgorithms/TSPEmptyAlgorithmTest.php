@@ -11,7 +11,7 @@ class TSPEmptyAlgorithmTest extends TestCase
 
     public function testExecutionTimeShouldByLessThan15MinWith32Cities(){
         $startTime = microtime(true);
-        (TSPAlgorithmBuilder::getTSPAlgorithm())->solve(TSPGraphBuilder::getDefaultGraph());
+        (TSPAlgorithmBuilder::getTSPEmptyAlgorithm())->solve(TSPGraphBuilder::getDefaultGraph());
         $this->assertLessThanOrEqual(15,microtime(true)-$startTime,"execution time should be less than 15 min.");
     }
 
@@ -24,6 +24,14 @@ class TSPEmptyAlgorithmTest extends TestCase
     }
 
     public function testResultedDistanceIsLessThanMaximum(){
+        $this->markTestSkipped();
+    }
+
+    public function testOnErrorReturnNullAndGetErrorsAnArray(){
+        $this->markTestSkipped();
+    }
+
+    public function testOnSuccessGetErrorsReturnNull(){
         $this->markTestSkipped();
     }
 }

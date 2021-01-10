@@ -9,7 +9,7 @@ use App\Domain\TSPCalculator\TSPAlgorithms\TSPEmptyAlgorithm;
 class TSPAlgorithmBuilder
 {
 
-    public static function getTSPAlgorithm(): TSPEmptyAlgorithm
+    public static function getTSPEmptyAlgorithm(): TSPEmptyAlgorithm
     {
         return new TSPEmptyAlgorithm();
     }

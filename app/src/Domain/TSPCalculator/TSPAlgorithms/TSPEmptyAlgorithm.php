@@ -14,7 +14,7 @@ class TSPEmptyAlgorithm extends TSPAlgorithm
         return $TSPGraph;
     }
 
-    public function getErrors():array
+    public function getErrors(): ?array
     {
         return [];
     }
