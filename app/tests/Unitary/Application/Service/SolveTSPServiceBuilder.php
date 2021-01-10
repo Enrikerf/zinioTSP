@@ -15,7 +15,8 @@ class SolveTSPServiceBuilder
         return new SolveTSPServiceBuilder();
     }
 
-    public function LoadCitiesPort(LoadCitiesPort $loadCitiesPort){
+    public function LoadCitiesPort(LoadCitiesPort $loadCitiesPort): SolveTSPServiceBuilder
+    {
         $this->loadCitiesPort = $loadCitiesPort;
         return $this;
     }
