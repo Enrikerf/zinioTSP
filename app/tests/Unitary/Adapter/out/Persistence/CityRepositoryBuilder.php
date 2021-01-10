@@ -9,8 +9,8 @@ use Mockery;
 
 class CityRepositoryBuilder
 {
-    const NOT_VALID_ONE_WORD_NAME_CITY_STRING = " Beijing 39.93 ";
-    const VALID_ONE_WORD_NAME_CITY_STRING = "Beijing 39.93 116.40";
+    const NOT_VALID_ONE_WORD_NAME_CITY_STRING = " Beijing Beijing 39.93 ";
+    const VALID_ONE_WORD_NAME_CITY_STRING = " Beijing Beijing  39.93 116.40";
 
     private $citiesToReturnOnGetCities;
 

@@ -17,8 +17,8 @@ class LoadCitiesAdapterTest extends TestCase
      * - cities without right format: at least 3 elements separates by spaces ended by \r\n
      * Equivalence classes:
      * - empty Cities dataset
-     * - filled Cities dataset - good format
-     * - filled Cities dataset - bad format
+     * - filled Cities dataset - good format - multiword (contain one word case)
+     * - filled Cities dataset - bad format  - multiword (contain one word case)
      * Limit Values
      * - filled dataset it is the same with one to N cities, de limit it is 1
      */
