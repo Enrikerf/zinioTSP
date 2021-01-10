@@ -12,21 +12,21 @@ class TSPAlgorithmBuilder
 {
 
     public static function getMockWithDefaultSolveResult(){
-        $TSPAlgorithm = Mockery::mock(TSPAlgorithm::class);
-        $TSPAlgorithm->allows([
+        $TSPAlgorithmMock = Mockery::mock(TSPAlgorithm::class);
+        $TSPAlgorithmMock->allows([
             "solve"=>[],
             "getErrors"=>null,
         ]);
-        return $TSPAlgorithm;
+        return $TSPAlgorithmMock;
     }
 
     public static function getMockWithSolveFailureResponse(){
-        $TSPAlgorithm = Mockery::mock(TSPAlgorithm::class);
-        $TSPAlgorithm->allows([
+        $TSPAlgorithmMock = Mockery::mock(TSPAlgorithm::class);
+        $TSPAlgorithmMock->allows([
             "solve"=>null,
             "getErrors"=>[],
         ]);
-        return $TSPAlgorithm;
+        return $TSPAlgorithmMock;
     }
 
 }
