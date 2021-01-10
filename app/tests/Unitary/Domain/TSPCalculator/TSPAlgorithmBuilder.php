@@ -17,6 +17,7 @@ class TSPAlgorithmBuilder
             "solve"=>[],
             "getErrors"=>null,
         ]);
+        return $TSPAlgorithm;
     }
 
     public static function getMockWithSolveFailureResponse(){
@@ -25,6 +26,7 @@ class TSPAlgorithmBuilder
             "solve"=>null,
             "getErrors"=>[],
         ]);
+        return $TSPAlgorithm;
     }
 
 }

@@ -23,7 +23,8 @@ class TSPCalculator
         return $this->algorithm->solve($TSPGraph);
     }
 
-    public function getErrors():array{
+    public function getErrors(): ?array
+    {
         return $this->algorithm->getErrors();
     }
 
