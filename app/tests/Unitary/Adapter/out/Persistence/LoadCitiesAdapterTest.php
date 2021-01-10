@@ -25,15 +25,15 @@ class LoadCitiesAdapterTest extends TestCase
 
     public function testEmptyDatasetReturnNull()
     {
-        $cityRepository = CityRepositoryBuilder::getMockBuilder()->setCitiesToREturnOnGetCities(null)->build();
+        $cityRepository = CityRepositoryBuilder::getMockBuilder()->setCitiesToReturnOnGetCities(null)->build();
         $loadCitiesAdapter = LoadCitiesAdapterBuilder::getBuilder()->citiesRepository($cityRepository)->build();
         $this->assertNull($loadCitiesAdapter->getCities());
     }
 
     public function testFilledDatasetWitBadFormatReturnNull()
     {
-        $cityRepository = CityRepositoryBuilder::getMockBuilder()->setCitiesToREturnOnGetCities([
-            CityRepositoryBuilder::NOT_VALID_ONE_WORD_NAME_CITY_STRING
+        $cityRepository = CityRepositoryBuilder::getMockBuilder()->setCitiesToReturnOnGetCities([
+            CityRepositoryBuilder::NOT_VALID_MULTI_WORD_NAME_CITY_STRING
         ])->build();
         $loadCitiesAdapter = LoadCitiesAdapterBuilder::getBuilder()->citiesRepository($cityRepository)->build();
         $this->assertNull($loadCitiesAdapter->getCities());
@@ -41,8 +41,8 @@ class LoadCitiesAdapterTest extends TestCase
 
     public function testFilledDatasetWitGoodFormatReturnArray()
     {
-        $cityRepository = CityRepositoryBuilder::getMockBuilder()->setCitiesToREturnOnGetCities([
-            CityRepositoryBuilder::VALID_ONE_WORD_NAME_CITY_STRING
+        $cityRepository = CityRepositoryBuilder::getMockBuilder()->setCitiesToReturnOnGetCities([
+            CityRepositoryBuilder::VALID_MULTI_WORD_NAME_CITY_STRING
         ])->build();
         $loadCitiesAdapter = LoadCitiesAdapterBuilder::getBuilder()->citiesRepository($cityRepository)->build();
         $this->assertIsArray($loadCitiesAdapter->getCities());

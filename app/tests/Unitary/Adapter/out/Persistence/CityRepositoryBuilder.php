@@ -9,17 +9,17 @@ use Mockery;
 
 class CityRepositoryBuilder
 {
-    const NOT_VALID_ONE_WORD_NAME_CITY_STRING = " Beijing Beijing 39.93 ";
-    const VALID_ONE_WORD_NAME_CITY_STRING = " Beijing Beijing  39.93 116.40";
+    const NOT_VALID_MULTI_WORD_NAME_CITY_STRING = " Beijing Beijing 39.93 ";
+    const VALID_MULTI_WORD_NAME_CITY_STRING = " Beijing Beijing  39.93 116.40";
 
-    private $citiesToReturnOnGetCities;
+    private ?array $citiesToReturnOnGetCities;
 
-    public static function getMockBuilder()
+    public static function getMockBuilder(): CityRepositoryBuilder
     {
         return new CityRepositoryBuilder();
     }
 
-    public function setCitiesToREturnOnGetCities(?array $cities): CityRepositoryBuilder
+    public function setCitiesToReturnOnGetCities(?array $cities): CityRepositoryBuilder
     {
         $this->citiesToReturnOnGetCities = $cities;
         return $this;

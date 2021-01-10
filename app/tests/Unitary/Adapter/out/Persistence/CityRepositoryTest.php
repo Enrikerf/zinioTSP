@@ -72,7 +72,7 @@ class CityRepositoryTest extends TestCase
     public function testGetCitiesOnNotEmptyFileCanLoadFileCanCloseFileReturnArray()
     {
         $cityRepository = Mockery::mock(CityRepository::class)->makePartial();
-        $cityRepository->shouldReceive('getLine')->andReturn(CityRepositoryBuilder::VALID_ONE_WORD_NAME_CITY_STRING, false);
+        $cityRepository->shouldReceive('getLine')->andReturn(CityRepositoryBuilder::VALID_MULTI_WORD_NAME_CITY_STRING, false);
         $cityRepository->shouldReceive('loadFile')->andReturn(true);
         $cityRepository->shouldReceive('closeFile')->andReturn(true);
         /** @var CityRepository $cityRepository */
@@ -82,7 +82,7 @@ class CityRepositoryTest extends TestCase
     public function testGetCitiesOnNotEmptyFileCanLoadFileCantCloseFileReturnNull()
     {
         $cityRepository = Mockery::mock(CityRepository::class)->makePartial();
-        $cityRepository->shouldReceive('getLine')->andReturn(CityRepositoryBuilder::VALID_ONE_WORD_NAME_CITY_STRING, false);
+        $cityRepository->shouldReceive('getLine')->andReturn(CityRepositoryBuilder::VALID_MULTI_WORD_NAME_CITY_STRING, false);
         $cityRepository->shouldReceive('loadFile')->andReturn(true);
         $cityRepository->shouldReceive('closeFile')->andReturn(false);
         /** @var CityRepository $cityRepository */
@@ -92,7 +92,7 @@ class CityRepositoryTest extends TestCase
     public function testGetCitiesOnNotEmptyFileCantLoadFileCanCloseFileReturnNull()
     {
         $cityRepository = Mockery::mock(CityRepository::class)->makePartial();
-        $cityRepository->shouldReceive('getLine')->andReturn(CityRepositoryBuilder::VALID_ONE_WORD_NAME_CITY_STRING, false);
+        $cityRepository->shouldReceive('getLine')->andReturn(CityRepositoryBuilder::VALID_MULTI_WORD_NAME_CITY_STRING, false);
         $cityRepository->shouldReceive('loadFile')->andReturn(false);
         $cityRepository->shouldReceive('closeFile')->andReturn(true);
         /** @var CityRepository $cityRepository */
@@ -102,7 +102,7 @@ class CityRepositoryTest extends TestCase
     public function testGetCitiesOnNotEmptyFileCantLoadFileCantCloseFileReturnNull()
     {
         $cityRepository = Mockery::mock(CityRepository::class)->makePartial();
-        $cityRepository->shouldReceive('getLine')->andReturn(CityRepositoryBuilder::VALID_ONE_WORD_NAME_CITY_STRING, false);
+        $cityRepository->shouldReceive('getLine')->andReturn(CityRepositoryBuilder::VALID_MULTI_WORD_NAME_CITY_STRING, false);
         $cityRepository->shouldReceive('loadFile')->andReturn(false);
         $cityRepository->shouldReceive('closeFile')->andReturn(false);
         /** @var CityRepository $cityRepository */

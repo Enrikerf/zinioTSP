@@ -8,14 +8,39 @@ class CityBuilder
 {
 
 
-    private string $name;
-    private float $x;
-    private float $y;
+    private ?string $name = null;
+    private ?float $x = null;
+    private ?float $y = null;
 
     public static function getBuilder(): CityBuilder
     {
         return new CityBuilder();
     }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return float
+     */
+    public function getX(): float
+    {
+        return $this->x;
+    }
+
+    /**
+     * @return float
+     */
+    public function getY(): float
+    {
+        return $this->y;
+    }
+
 
     /**
      * @param mixed $name

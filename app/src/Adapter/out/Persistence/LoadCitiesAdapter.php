@@ -34,52 +34,45 @@ class LoadCitiesAdapter implements LoadCitiesPort
 
     private function mapperString2Model(string $cityString): ?City
     {
+        $filled = $this->fillCityBuilder($cityBuilder = new CityBuilder(), $this->getCityStringElements($cityString));
+        if ($filled) {
+            return $cityBuilder->build();
+        } else {
+            return null;
+        }
+    }
 
-        $cityElements = $this->getCityStringElements($cityString);
+    public function fillCityBuilder(CityBuilder $cityBuilder, array $cityStringElements): bool
+    {
         $firstElementIsText = false;
         $firstNumberObtained = false;
         $secondNumberObtained = false;
-        $name = "";
-        $x = null;
-        $y = null;
-
-        foreach ($cityElements as $element) {
+        foreach ($cityStringElements as $element) {
             if (!is_numeric($element)) {
                 if ($firstElementIsText) {
-                    $name .= " " . $element;
+                    $cityBuilder->name($cityBuilder->getName() . " " . $element);
                 } else {
                     $firstElementIsText = true;
-                    $name .= $element;
+                    $cityBuilder->name($element);
                 }
-
             } else {
                 if (!$firstElementIsText) {
-                    return null;
+                    return false;
                 }
                 if (!$firstNumberObtained) {
                     $firstNumberObtained = true;
-                    $x = $element;
+                    $cityBuilder->x(floatval($element));
                 } else {
                     if (!$secondNumberObtained) {
-                        $firstNumberObtained = true;
-                        $y = $element;
+                        $secondNumberObtained = true;
+                        $cityBuilder->y(floatval($element));
                     } else {
-                        return null;
+                        return false;
                     }
                 }
-
             }
         }
-        if (empty($name) || empty($x) || empty($y)) {
-            return null;
-        }
-
-        return (new CityBuilder())
-            ->name($name)
-            ->x($x)
-            ->y($y)
-            ->build();
-
+        return $firstElementIsText && $firstNumberObtained && $secondNumberObtained;
     }
 
     private function getCityStringElements(string $cityString)
